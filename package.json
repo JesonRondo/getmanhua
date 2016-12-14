@@ -6,6 +6,7 @@
   "scripts": {
     "book": "node --harmony-async-await book.js",
     "chapters": "node --harmony-async-await chapters.js",
+    "clean": "node --harmony-async-await clean.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "longzhou",
