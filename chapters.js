@@ -25,7 +25,12 @@ const reptile = {
   },
   getPics: async (url) => {
     const page = await reptile.fetch(url)
-    const match = page.match(/var\ qTcms_S_m_murl_e\ \=\ \"([\w|\=]*)\"/img)
+    const match = page.match(/var\ qTcms_S_m_murl_e\ \=\ \"([\w|\=|\/|\+]*)\"/img)
+    if (!match) {
+      console.log(title)
+      return
+    }
+
     const pages = decode(match[0]
         .replace('var qTcms_S_m_murl_e = "', '')
         .replace('"', '')).split('$qingtiandy$')

@@ -8,7 +8,7 @@ if (fs.existsSync(distPath)) {
   for (let i = 0; i < ret.length; i++) {
     const fpath = path.join(distPath, ret[i])
     const f = fs.statSync(fpath)
-    if (f.size < 75000) {
+    if (f.size < 40000) {
       spawn('rm', [fpath], {
         stdio: 'inherit'
       })

@@ -27,11 +27,17 @@ const reptile = {
     const $ = cheerio.load(page)
 
     const as = $('#play_0 a')
-    const fwIndex = 1
+    let fwIndex = 1
     for (let i = 0; i < as.length; i++) {
       let title = as[i].attribs.title.replace(/\W*/img, '')
       if (!title) {
-        title = `fw${fwIndex++}`
+        if (fwIndex < 10) {
+          title = `fw00${fwIndex++}`
+        } else if (title < 100) {
+          title = `fw0${fwIndex++}`
+        } else {
+          title = `fw${fwIndex++}`
+        }
       } else {
         title = +title
         if (title < 10) {
